@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title>タスクの追加</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<header th:replace="header"></header>
+	
+	<nav>
+		
+	</nav>
+	<form action="/tasks/add" method="post">
+				
+		<table border="1">
+			<tr>
+				<th>タイトル</th>
+				<td>
+					<input type="text" name="title">
+				</td>
+			</tr>
+			<tr>
+				<th>カテゴリ</th>
+					<td>
+					<select name="categoryId">
+						<option th:each="cat : ${categories}"
+							    th:value="${cat.id}"
+							    th:text="${cat.name}">
+							</option>
+					</select>
+					</td>
+			</tr>
+			<tr>
+				<th>期限</th>
+				<td>
+					<input type="date" name="closing_date">
+				</td>
+			</tr>
+			<tr>
+				<th>メモ</th>
+				<td>
+					<textarea name="memo" rows="4" cols="30"></textarea>
+				</td>
+			</tr>
+		</table>
+		
+		<ul th:each="error : ${errors}">
+			<a th:text="${error}" style="color: red;"></a>
+		</ul>
+		  
+		<button>登録</button>
+	</form>
+</body>
+</html>

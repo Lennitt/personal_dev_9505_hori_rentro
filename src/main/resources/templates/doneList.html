@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title>完了タスク一覧</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<header th:replace="header"></header>
+	<h2>完了したタスク一覧</h2>
+	<a href="/tasks">未完了タスクに戻る</a>
+	<table>
+	<tr>
+		<th>NO</th>
+		<th>タイトル</th>
+		<th>カテゴリー</th>
+		<th>期限</th>
+		<th>未完了に戻す</th>
+	</tr>
+	<tr th:each="task : ${tasks}">
+		<td th:text="${task.id}"></td>
+		<td th:text="${task.title}"></td>
+		<td th:text="${task.categoryId}"></td>
+		<td th:text="${task.closing_date}"></td>
+		<td>
+			<form th:action="@{/tasks/{id}/undo(id=${task.id})}" method="post">
+				<button>戻す</button>
+			</form>
+		  </td>
+	</tr>
+	</table>
+</body>
+</html>
