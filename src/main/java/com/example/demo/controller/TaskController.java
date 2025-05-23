@@ -34,7 +34,7 @@ public class TaskController {
 	HttpSession session;
 
 	@Autowired
-	User account;
+	User user;
 
 	// タスク一覧ページを表示（未完了のタスクのみ）
 	@GetMapping("/tasks")
@@ -69,8 +69,8 @@ public class TaskController {
 				tasks.setCloseDate("someday");
 			}
 		}
-
 		model.addAttribute("tasks", taskList);
+		model.addAttribute("user", user);
 
 		// tasks.html を表示
 		return "tasks";

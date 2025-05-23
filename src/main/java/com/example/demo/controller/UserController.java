@@ -28,9 +28,6 @@ public class UserController {
 	@Autowired
 	User user;
 
-	@Autowired
-	private com.example.demo.model.User sessionUser;
-
 	@GetMapping({ "/", "/login", "/logout" })
 	public String index(
 			@RequestParam(name = "error", defaultValue = "") String error,
@@ -62,8 +59,8 @@ public class UserController {
 		if (accountOpt.isPresent()) {
 			Account account = accountOpt.get();
 
-			sessionUser.setName(account.getName());
-			sessionUser.setEmail(account.getEmail());
+			user.setName(account.getName());
+			user.setEmail(account.getEmail());
 
 			return "redirect:/tasks";
 		} else {

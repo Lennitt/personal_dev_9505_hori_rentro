@@ -13,10 +13,13 @@
 
 	<main>
 		
-		<nav>
+		<nav class="main-nav">
 			
 			<a href="/tasks">タスク一覧</a>
-			<a href="/tasks/completed">完了済み一覧</a>
+			<a href="/tasks/completed">完了済み一覧</a><br>
+		</nav>
+		
+		<nav class="category-nav">
 			<a th:each="category : ${categories}"
 				th:href="@{/tasks(categoryId=${category.id})}"
 				th:text="${category.name}">
@@ -38,10 +41,7 @@
 			<tr th:each="task : ${tasks}">
 				<td>
 					<form th:action="@{/tasks/{id}/complete(id=${task.id})}" method="post">
-						<input type="checkbox" 
-						th:checked="${task.done}" 
-						th:disabled="${task.done}"
-						onchange="this.form.submit()">
+						<button>✔️</button>
 					</form>
 				</td>
 				<td th:text="${task.title}"></td>

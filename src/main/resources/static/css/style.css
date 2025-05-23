@@ -1,94 +1,204 @@
-body {
-  margin: 0;
-  padding: 20px;
-  font: 16px/1.5 sans-serif;
-  background: #f5f5f5;
-  color: #66523e;
-}
-
-header,
-footer {
-  background: #d2f1c2;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-header a {
-  color: inherit;
-  text-decoration: none;
-}
-
-nav {
-  margin: 20px 0;
-}
-
-nav a,
-nav button,
-button {
-  display: inline-block;
-  padding: 8px 16px;
-  margin: 0 8px 8px 0;
-  background: #f0f0f0;
-  color: #66523e;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-}
-
-nav a:hover,
-nav button:hover,
-button:hover {
-  background: #d0d0d0;
-  transform: translateY(-1px);
+body{
+	margin: 0.5ch;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: rgb(239, 232, 205);
 }
 
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #e5e5e5;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
+header{
+	padding-left: 3ch;
+	padding-right: 3ch;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	background-color:rgb(235, 217, 88);
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	margin-bottom: 3ch;
+	box-shadow: 0 4px 4px;
+}
+header p{
+	text-align: right;
+}
+header h1{
+	text-align: center;
+}
+header h1 a {
+	font-family: serif;
+  	text-decoration: none;
+	color: rgb(58, 34, 2);
+}
+header h1 a:hover{
+	color: brown;
+}
+header p a{
+	text-decoration: none;
+	color: rgb(58, 34, 2);
+	border: 1px dashed rgb(58, 34, 2);
+	border-radius: 6px;
+	padding: 1px 6px;
+	
+}
+header p a:hover{
+	background-color: rgb(238, 172, 0);
+	color: brown;
 }
 
-th,
-td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 2px solid rgb(102, 82, 62);
+.main-nav{
+	text-align: center;
+	padding: 12px;
+	margin: 3px;
+	border-radius: 4px;
+	background-color: bisque;
+	color: rgb(62, 62, 62);
+	box-shadow: 0 4px 4px;
+}
+.main-nav a{
+	padding: 20px;
+	text-decoration: none;
+	color: brown;
+}
+.main-nav a:hover{
+	color: black;
+}
+.category-nav{
+	text-align: center;
+	padding: 12px;
+	margin: 3px;
+	border-radius: 4px;
+	background-color: bisque;
+	text-decoration: none;
+	color: rgb(62, 62, 62);
+	box-shadow: 0 4px 4px;
+	margin-bottom: 3ch;
+}
+.category-nav a{
+	padding: 20px;
+	text-decoration: none;
+	color: brown;
 }
 
-th {
-  background: #d2f1c2;
+.category-nav a:hover{
+	color: black;
+}
+
+table{
+	width: 100%;
+	border-radius: 12px;
+	box-shadow: 0 4px 4px;
+}
+
+th{
+	color: beige;
+	background-color: rgb(209, 209, 3);
+	border-bottom: 1px solid rgb(51, 51, 51);
+	border-radius: 4px;
+}
+td{
+	background-color: rgb(255, 245, 230);
+	color: rgb(0, 0, 0);
+	border-bottom: 1px dashed rgb(51, 51, 51);
+	text-align: center;
+	border-radius: 4px;
+}
+button{
+	color: rgb(73, 73, 73);
+	background-color: rgb(249, 252, 194);
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+button:hover{
+	background-color: rgb(247, 251, 157);
+	transform: scale3d();
+}
+
+
+footer{
+	margin-top: 3ch;
+	margin-bottom: 0;
+	padding: 10px;
+	text-align: center;
+	background-color:rgb(235, 217, 88);
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	box-shadow: 0 -4px 4px;
+}
+
+/*フッターのお問い合わせなどのリンク*/
+footer a{
+	text-decoration: none;
+	color: rgb(73, 73, 73);
+}
+
+footer a:hover{
+	text-decoration: underline;
+	color: blue;
+}
+form{
+	text-align: center;
+}
+input[type="text"]{
+	border-radius: 8px;
+	background-color: beige;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 5px;
+}
+select{
+	border-radius: 8px;
+	background-color: beige;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 5px;
+}
+input[type="date"]{
+	border-radius: 8px;
+	background-color: beige;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 5px;
+}
+textarea{
+	border-radius: 8px;
+	background-color: beige;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 5px;
 }
 
 input[type="checkbox"] {
-  transform: scale(1.5);
+	transform: scale(1.5);
+	text-align: center;
 }
 
 
 .memo-cell {
-  max-width: 7ch;          
-  white-space: nowrap;   
-  overflow: hidden;         
-  text-overflow: ellipsis;
+	color: dimgrey;
+	max-width: 7ch;          
+  	white-space: nowrap;   
+  	overflow: hidden;         
+  	text-overflow: ellipsis;
 }
 
 .past{
 	color: darkgray;
 }
 .today{
-	color: red;
+	color: rgb(255, 128, 128);
 }
 .tomorrow{
-	color: orange;
+	color: rgb(255, 128, 0);
 }
 .threedays{
-	color: yellow;
+	color: rgb(231, 240, 108);
 }
 .someday{
 	color: black;
