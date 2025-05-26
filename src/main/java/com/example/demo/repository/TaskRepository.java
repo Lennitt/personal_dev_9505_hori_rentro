@@ -24,4 +24,6 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
 	List<Task> findByCategoryIdAndDoneFalseOrderByIdAsc(Integer categoryId);
 
+	List<Task> findByDoneFalseOrderByClosingDateAsc();
+
 }

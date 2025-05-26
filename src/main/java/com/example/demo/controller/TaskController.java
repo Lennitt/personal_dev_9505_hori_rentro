@@ -40,6 +40,7 @@ public class TaskController {
 	@GetMapping("/tasks")
 	public String index(@RequestParam(name = "categoryId", required = false) Integer categoryId,
 			@RequestParam(name = "closing_date", required = false) Integer closing_date,
+			@RequestParam(name = "dateAsc", required = false) String dateAsc,
 			Model model) {
 
 		// カテゴリー一覧を取得してビューに渡す
@@ -48,14 +49,19 @@ public class TaskController {
 
 		// カテゴリーで絞り込みしつつ、ID昇順で未完了タスクを取得
 		List<Task> taskList;
+
 		if (categoryId != null) {
 			taskList = taskRepository.findByCategoryIdAndDoneFalseOrderByIdAsc(categoryId);
 		} else {
 			taskList = taskRepository.findByDoneFalseOrderByIdAsc();
 		}
 
+		if (dateAsc != null) {
+			taskList = taskRepository.findByDoneFalseOrderByClosingDateAsc();
+		}
+
 		for (Task tasks : taskList) {
-			long days = ChronoUnit.DAYS.between(LocalDate.now(), tasks.getClosing_date());
+			long days = ChronoUnit.DAYS.between(LocalDate.now(), tasks.getClosingDate());
 
 			if (days < 0) {
 				tasks.setCloseDate("past");
@@ -136,7 +142,7 @@ public class TaskController {
 		Task task = taskRepository.findById(id).get();
 		task.setTitle(title);
 		task.setCategoryId(categoryId);
-		task.setClosing_date(closing_date);
+		task.setClosingDate(closing_date);
 		task.setMemo(memo);
 
 		taskRepository.save(task);

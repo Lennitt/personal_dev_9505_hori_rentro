@@ -12,11 +12,10 @@
 	<header th:replace="header"></header>
 
 	<main>
-		
 		<nav class="main-nav">
-			
 			<a href="/tasks">タスク一覧</a>
-			<a href="/tasks/completed">完了済み一覧</a><br>
+			<a href="/tasks/completed">完了済み一覧</a>
+			<a href="/tasks?dateAsc">期限を古い順に</a>
 		</nav>
 		
 		<nav class="category-nav">
@@ -26,7 +25,7 @@
 			</a>
 		</nav>
 		<form action="/tasks/add" method="get">
-			<button>NEWタスク</button>
+			<button class="newtask-button">NEWタスク</button>
 		</form>
 		<table>
 			<tr>
@@ -48,7 +47,7 @@
 				<td class="memo-cell" th:text="${task.memo}"></td>
 				<td th:text="${task.category.name}"></td>
 				<td>
-					<span th:class="${task.closeDate}" th:text="${task.closing_date}"></span>
+					<span th:class="${task.closeDate}" th:text="${task.closingDate}"></span>
 				</td>
 				<td>
 					<form th:action="@{/tasks/{taskId}/edit(taskId=${task.id})}" method="get">

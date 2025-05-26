@@ -15,7 +15,7 @@ header{
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
 	margin-bottom: 3ch;
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 header p{
 	text-align: right;
@@ -51,7 +51,7 @@ header p a:hover{
 	border-radius: 4px;
 	background-color: bisque;
 	color: rgb(62, 62, 62);
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .main-nav a{
 	padding: 20px;
@@ -69,7 +69,7 @@ header p a:hover{
 	background-color: bisque;
 	text-decoration: none;
 	color: rgb(62, 62, 62);
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	margin-bottom: 3ch;
 }
 .category-nav a{
@@ -82,19 +82,31 @@ header p a:hover{
 	color: black;
 }
 
+.newtask-button{
+	background-color:coral;
+	margin-bottom: 3px;
+	text-align: left;
+}
+
+.newtask-button:hover{
+	background-color: rgb(255, 100, 26);
+}
+
 table{
 	width: 100%;
 	border-radius: 12px;
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 th{
+	padding: 12px;
 	color: beige;
 	background-color: rgb(209, 209, 3);
 	border-bottom: 1px solid rgb(51, 51, 51);
 	border-radius: 4px;
 }
 td{
+	padding: 6px;
 	background-color: rgb(255, 245, 230);
 	color: rgb(0, 0, 0);
 	border-bottom: 1px dashed rgb(51, 51, 51);
@@ -125,7 +137,7 @@ footer{
 	background-color:rgb(235, 217, 88);
 	border-top-left-radius: 12px;
 	border-top-right-radius: 12px;
-	box-shadow: 0 -4px 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /*フッターのお問い合わせなどのリンク*/
@@ -142,6 +154,8 @@ form{
 	text-align: center;
 }
 input[type="text"]{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border: none;
 	border-radius: 8px;
 	background-color: beige;
 	padding: 5px;
@@ -192,13 +206,13 @@ input[type="checkbox"] {
 	color: darkgray;
 }
 .today{
-	color: rgb(255, 128, 128);
+	color: rgb(255, 89, 89);
 }
 .tomorrow{
-	color: rgb(255, 128, 0);
+	color: rgb(255, 174, 136);
 }
 .threedays{
-	color: rgb(231, 240, 108);
+	color: rgb(128, 255, 128);
 }
 .someday{
 	color: black;

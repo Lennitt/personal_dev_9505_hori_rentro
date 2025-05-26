@@ -21,7 +21,8 @@ public class Task {
 	@Column(name = "category_id")
 	private Integer categoryId;
 	private String title;
-	private LocalDate closing_date;
+	@Column(name = "closing_date")
+	private LocalDate closingDate;
 	private String memo;
 	private boolean done;
 	@Transient
@@ -38,7 +39,7 @@ public class Task {
 	public Task(String title, Integer categoryId, LocalDate closing_date, String memo) {
 		this.title = title;
 		this.categoryId = categoryId;
-		this.closing_date = closing_date;
+		this.closingDate = closing_date;
 		this.memo = memo;
 	}
 
@@ -74,12 +75,12 @@ public class Task {
 		this.memo = memo;
 	}
 
-	public LocalDate getClosing_date() {
-		return closing_date;
+	public LocalDate getClosingDate() {
+		return closingDate;
 	}
 
-	public void setClosing_date(LocalDate closing_date) {
-		this.closing_date = closing_date;
+	public void setClosingDate(LocalDate closing_date) {
+		this.closingDate = closing_date;
 	}
 
 	public boolean isDone() {
