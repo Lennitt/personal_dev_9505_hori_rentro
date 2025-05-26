@@ -55,9 +55,13 @@
 					</form>
 				</td>
 				<td>
-					<form th:action="@{/tasks/{taskId}/delete(taskId=${task.id})}" method="post">
-						<button>🗑️</button>
-					</form>
+					<button th:attr="popovertarget=${task.id}">🗑️</button>
+					<div popover th:id="${task.id}">
+						<p>本当に削除しますか？</p>
+						<form th:action="@{/tasks/{taskId}/delete(taskId=${task.id})}" method="post">
+							<button popovertarget="">🗑️</button>
+						</form>
+					</div>
 				</td>
 			</tr>
 		</table>

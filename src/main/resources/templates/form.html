@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>お問い合わせ</h1>
+	
+	<p>お問い合わせはこちら</p>
+	<table>
+		<tr>
+			<th>タイトル</th>
+			<td><input type="text" name="title"></td>
+		</tr>
+		<tr>
+			<th>内容</th>
+			<td><textarea name="form"></textarea></td>
+		</tr>
+		<tr>
+			<th>名前</th>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td><input type="text" name="email"></td>
+		</tr>
+	</table>
+	<form>
+		<button>
+			<a href="/tasks">送信</a>
+		</button>
+	</form>
+</body>
+</html>

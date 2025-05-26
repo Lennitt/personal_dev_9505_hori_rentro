@@ -23,7 +23,7 @@
 		<td th:text="${task.id}"></td>
 		<td th:text="${task.title}"></td>
 		<td th:text="${task.categoryId}"></td>
-		<td th:text="${task.closing_date}"></td>
+		<td th:text="${task.closingDate}"></td>
 		<td>
 			<form th:action="@{/tasks/{id}/undo(id=${task.id})}" method="post">
 				<button>戻す</button>

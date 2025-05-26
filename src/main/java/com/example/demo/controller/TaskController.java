@@ -39,7 +39,7 @@ public class TaskController {
 	// タスク一覧ページを表示（未完了のタスクのみ）
 	@GetMapping("/tasks")
 	public String index(@RequestParam(name = "categoryId", required = false) Integer categoryId,
-			@RequestParam(name = "closing_date", required = false) Integer closing_date,
+			@RequestParam(name = "closingDate", required = false) Integer closingDate,
 			@RequestParam(name = "dateAsc", required = false) String dateAsc,
 			Model model) {
 
@@ -94,7 +94,7 @@ public class TaskController {
 	public String store(
 			@RequestParam(name = "title", defaultValue = "") String title,
 			@RequestParam(name = "categoryId", defaultValue = "") Integer categoryId,
-			@RequestParam(name = "closing_date", defaultValue = "") LocalDate closing_date,
+			@RequestParam(name = "closingDate", defaultValue = "") LocalDate closingDate,
 			@RequestParam(name = "memo", defaultValue = "") String memo,
 			Model model) {
 
@@ -111,7 +111,7 @@ public class TaskController {
 			return "addTask";
 		}
 
-		Task task = new Task(title, categoryId, closing_date, memo);
+		Task task = new Task(title, categoryId, closingDate, memo);
 		taskRepository.save(task);
 
 		return "redirect:/tasks";
@@ -135,14 +135,14 @@ public class TaskController {
 			@PathVariable("id") Integer id,
 			@RequestParam(name = "title", defaultValue = "") String title,
 			@RequestParam(name = "categoryId", defaultValue = "") Integer categoryId,
-			@RequestParam(name = "closing_date", defaultValue = "") LocalDate closing_date,
+			@RequestParam(name = "closingDate", defaultValue = "") LocalDate closingDate,
 			@RequestParam(name = "memo", defaultValue = "") String memo) {
 
 		// 対象タスクを取得して値を更新
 		Task task = taskRepository.findById(id).get();
 		task.setTitle(title);
 		task.setCategoryId(categoryId);
-		task.setClosingDate(closing_date);
+		task.setClosingDate(closingDate);
 		task.setMemo(memo);
 
 		taskRepository.save(task);
@@ -186,4 +186,18 @@ public class TaskController {
 		}
 		return "redirect:/tasks/completed";
 	}
+
+	@GetMapping("/tasks/form")
+	public String form() {
+		return "form";
+	}
+
+	@PostMapping("/task/form")
+	public String contact(
+			@RequestParam String name,
+			Model model) {
+		model.addAttribute("name", name);
+		return "";
+	}
+
 }
