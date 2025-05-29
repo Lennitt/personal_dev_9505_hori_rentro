@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Category;
+import com.example.demo.entity.Form;
 import com.example.demo.entity.Task;
 import com.example.demo.model.User;
 import com.example.demo.repository.CategoryRepository;
+import com.example.demo.repository.FormRepository;
 import com.example.demo.repository.TaskRepository;
 
 @Controller
@@ -35,6 +37,9 @@ public class TaskController {
 
 	@Autowired
 	User user;
+
+	@Autowired
+	FormRepository formRepository;
 
 	// タスク一覧ページを表示（未完了のタスクのみ）
 	@GetMapping("/tasks")
@@ -61,7 +66,12 @@ public class TaskController {
 		}
 
 		for (Task tasks : taskList) {
-			long days = ChronoUnit.DAYS.between(LocalDate.now(), tasks.getClosingDate());
+			LocalDate closingDay = tasks.getClosingDate();
+
+			if (closingDay == null) {
+				closingDay = LocalDate.now();
+			}
+			long days = ChronoUnit.DAYS.between(LocalDate.now(), closingDay);
 
 			if (days < 0) {
 				tasks.setCloseDate("past");
@@ -189,15 +199,30 @@ public class TaskController {
 
 	@GetMapping("/tasks/form")
 	public String form() {
+
 		return "form";
 	}
 
-	@PostMapping("/task/form")
-	public String contact(
-			@RequestParam String name,
+	@PostMapping("/tasks/form")
+	public String formm(
+			@RequestParam(name = "title", defaultValue = "") String title,
+			@RequestParam(name = "contact", defaultValue = "") String contact,
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "email", defaultValue = "") String email,
 			Model model) {
-		model.addAttribute("name", name);
-		return "";
+
+		Form forms = new Form(title, contact, name, email);
+		formRepository.save(forms);
+
+		//		List<Form> forms = formRepository.findAll();
+		//		model.addAttribute("form", forms);
+
+		return "redirect:/tasks";
+	}
+
+	@GetMapping("/tasks/privacy")
+	public String privacy() {
+		return "privacy";
 	}
 
 }

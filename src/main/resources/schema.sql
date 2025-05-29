@@ -2,6 +2,7 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS form;
 
 -- users テーブルを作成するクエリ
 CREATE TABLE users (
@@ -27,4 +28,12 @@ done BOOLEAN DEFAULT FALSE
 CREATE TABLE categories (
 id SERIAL PRIMARY KEY,
 name TEXT
+);
+
+CREATE TABLE form (
+id SERIAL PRIMARY KEY,
+title TEXT,
+contact TEXT,
+name TEXT,
+email TEXT
 );

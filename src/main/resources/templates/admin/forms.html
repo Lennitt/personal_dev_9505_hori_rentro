@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<h1>お問い合わせ一覧</h1>
+	<table border="1">
+		<tr>
+			<th>title</th>
+			<th>contact</th>
+			<th>name</th>
+			<th>email</th>
+		</tr>
+		<tr th:each="form:${forms}">
+			<td th:text="${form.title}"></td>
+			<td th:text="${form.contact}"></td>
+			<td th:text="${form.name}"></td>
+			<td th:text="${form.email}"></td>
+		</tr>
+	</table>
+</body>
+</html>

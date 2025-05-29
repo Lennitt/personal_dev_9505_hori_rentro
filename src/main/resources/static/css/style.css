@@ -14,7 +14,7 @@ header{
 	background-color:rgb(159, 222, 240);
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
-	margin-bottom: 3ch;
+	margin-bottom: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	position: sticky;
 	top: 0;
@@ -39,14 +39,11 @@ header p a{
 	font-weight:900;
 	text-decoration: none;
 	color: rgb(10, 78, 67);
-	border: 1px dashed rgb(10, 78, 67);
-	border-radius: 6px;
 	padding: 1px 6px;
 	
 }
 header p a:hover{
-	background-color: rgb(72, 210, 240);
-	color: rgb(10, 78, 67);
+	text-decoration: underline;
 }
 
 .main-nav{
@@ -172,6 +169,8 @@ input[type="text"]{
 	margin: 5px;
 }
 select{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border: none;
 	font-weight:900;
 	border-radius: 8px;
 	background-color: beige;
@@ -181,6 +180,8 @@ select{
 	margin: 5px;
 }
 input[type="date"]{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border: none;
 	font-weight:900;
 	border-radius: 8px;
 	background-color: beige;
@@ -217,15 +218,16 @@ input[type="checkbox"] {
 }
 
 div p{
+	color: red;
 	padding: 20px;
 }
 
 ::backdrop{
-	
 }
 
 
 .memo-cell {
+	font-weight:600;
 	color: dimgrey;
 	max-width: 7ch;          
   	white-space: nowrap;   

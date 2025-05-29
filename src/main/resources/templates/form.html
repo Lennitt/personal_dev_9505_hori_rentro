@@ -11,6 +11,7 @@
 	<h1>お問い合わせ</h1>
 	
 	<p>お問い合わせはこちら</p>
+	<form action="/tasks/form" method="post">
 	<table>
 		<tr>
 			<th>タイトル</th>
@@ -18,7 +19,7 @@
 		</tr>
 		<tr>
 			<th>内容</th>
-			<td><textarea name="form"></textarea></td>
+			<td><textarea name="contact"></textarea></td>
 		</tr>
 		<tr>
 			<th>名前</th>
@@ -29,10 +30,9 @@
 			<td><input type="text" name="email"></td>
 		</tr>
 	</table>
-	<form>
-		<button>
-			<a href="/tasks">送信</a>
-		</button>
+	<button>
+		送信
+	</button>
 	</form>
 </body>
 </html>
