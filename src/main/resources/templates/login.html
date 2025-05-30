@@ -11,7 +11,7 @@
 	<header th:replace="header"></header>
 	<form action="/login" method="post">
 			<input type="text" name="email" placeholder="メールアドレス"><br>
-			<input type="text" name="password" placeholder="パスワード"><br>
+			<input type="password" name="password" placeholder="パスワード"><br>
 			<button>ログイン</button>
 		<br><span th:text="${message}" class="error-message" style="color: red;"></span>
 
